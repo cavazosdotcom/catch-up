@@ -1,0 +1,17 @@
+[
+    {
+        "name": "listdude",
+        "email": "list@dude.gov",
+        "password": "ilovelist"
+    },
+    {
+        "name": "mediaconsumption",
+        "email": "consoomer@binge.net",
+        "password": "1hobby" 
+    },
+    {
+        "name": "name",
+        "email": "e@mail.ru",
+        "password": "password123" 
+    }
+]
