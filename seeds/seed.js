@@ -17,11 +17,12 @@ const seedDatabase = async () => {
       returning: true
   });
 
-  for(let i = 1; i < maxID; i++){
+  for(let i = 1; i <= maxID; i++){
     let list = await List.create({user_id: i});
     console.log(list.id);
     for(let j = Math.floor(Math.random() * 4) + 2; j > 0; j--){ //List 2 to 6 random media.
-      await list.addMedia(Math.floor(Math.random * mediaData.length) + 1);
+      const id = Math.floor(Math.random() * mediaData.length) + 1;
+      await list.addMedia(id);
     }
   }
   
