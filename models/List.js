@@ -1,13 +1,13 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const {MediaList} = require("./MediaList")
+const MediaList = require("./MediaList")
 
 class List extends Model{
 
-    async addMedia(media_id){
-        return await Model.create({
+    async addMedia(medium_id){
+        return await MediaList.create({
             list_id: this.id,
-            media_id 
+            medium_id 
         });
     }
 
