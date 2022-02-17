@@ -12,7 +12,7 @@ Media.init(
       autoIncrement: true,
     },
     title: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     type: {
@@ -23,7 +23,7 @@ Media.init(
       },
     },
     info: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true,
     }
   },
