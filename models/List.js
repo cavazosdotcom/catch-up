@@ -17,13 +17,6 @@ List.init(
                 model: "user",
                 key: "id"
             }
-        },
-        media: {
-            type: DataTypes.ARRAY(DataTypes.INTEGER),
-            references: {
-                model: "media",
-                key: "id"
-            }
         }
     },
     {
