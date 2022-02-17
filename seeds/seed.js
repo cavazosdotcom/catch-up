@@ -2,13 +2,8 @@ const sequelize = require('../config/connection');
 const { User, List, Media } = require('../models');
 
 const userData = require('./userData.json');
-const listData = require('./listData.json');
 const mediaData = require('./mediaData.json');
-
-/**
- * Leaving for future reference
- */
-// const projectData = require('./projectData.json');
+const maxID = userData.length;
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -17,29 +12,18 @@ const seedDatabase = async () => {
     individualHooks: true,
     returning: true,
   });
-
-  /**
-   * Leaving for future reference
-   */
   
-  for (const media of mediaData) {
-    const mediaData = {
-      ...media,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
-    };
-    console.log(mediaData);
-    await Media.create( mediaData );
+  const media = await Media.bulkCreate(mediaData, {
+      returning: true
+  });
+
+  for(let i = 1; i < maxID; i++){
+    let list = await List.create({user_id: i});
+    console.log(list.id);
+    for(let j = Math.floor(Math.random() * 4) + 2; j > 0; j--){ //List 2 to 6 random media.
+      await list.addMedia(Math.floor(Math.random * mediaData.length) + 1);
+    }
   }
-
-//   for (const list of listData) {
-//     const listData = {
-//       ...list,
-//       user_id: users[Math.floor(Math.random() * users.length)].id,
-//     };
-//     console.log(listData);
-//     await List.create( listData );
-//   }
-
   
   process.exit(0);
 };

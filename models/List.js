@@ -1,7 +1,17 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const MediaList = require("./MediaList")
 
-class List extends Model{}
+class List extends Model{
+
+    async addMedia(medium_id){
+        return await MediaList.create({
+            list_id: this.id,
+            medium_id 
+        });
+    }
+
+}
 
 List.init(
     {
@@ -21,6 +31,7 @@ List.init(
     },
     {
         sequelize,
+        timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: "list"

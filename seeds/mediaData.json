@@ -1,0 +1,52 @@
+[
+    {
+        "title": "The Lord of the Rings: The Fellowship of the Ring",
+        "type": "book",
+        "info": "It's a book about rings. Written by J.R.R. Tolkein." 
+    },
+    {
+        "title": "The Lord of the Rings: The Fellowship of the Ring",
+        "type": "movie",
+        "info": "It's a movie about rings, and not a book." 
+    },
+    {
+        "title": "Pokemon: The First Movie",
+        "type": "movie",
+        "info": "MewTwo strikes back in this one." 
+    },
+    {
+        "title": "Rick and Morty",
+        "type": "tv show",
+        "info": "This is the one about the pickle." 
+    },
+    {
+        "title": "Attack on Titan",
+        "type": "tv show",
+        "info": "Should've been titled 'Attack Titan', but it is what it is." 
+    },
+    {
+        "title": "Crime and Punishment",
+        "type": "book",
+        "info": "This is, uh, a long one. Written by Fyodr Dostoyevsky." 
+    },
+    {
+        "title": "Dune",
+        "type": "movie",
+        "info": "The movie based on the epic novel." 
+    },
+    {
+        "title": "Dune",
+        "type": "book",
+        "info": "A science fiction classic, now a major motion picture. Written by Frank Herbert."
+    },
+    {
+        "title": "S.T.A.L.K.E.R. Shadow of Chernobyl",
+        "type": "videogame",
+        "info": "It's old Tarkov."
+    },
+    {
+        "title": "Elden Ring",
+        "type": "videogame",
+        "info": "Someone wrote for this game instead of finishing their novel series." 
+    }
+]
