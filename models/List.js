@@ -5,10 +5,18 @@ const MediaList = require("./MediaList")
 class List extends Model{
 
     async addMedia(medium_id){
-        return await MediaList.create({
-            list_id: this.id,
-            medium_id 
+        const inList = await MediaList.findOne({
+            where: {
+                medium_id
+            }
         });
+        if(!inList){
+            return await MediaList.create({
+                list_id: this.id,
+                medium_id 
+            });
+        }
+        
     }
 
 }
