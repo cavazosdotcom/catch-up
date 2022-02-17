@@ -23,7 +23,7 @@ Media.belongsTo(User, {
 Media.belongsToMany(List, {through: "media_list"});
 
 // List.belongsToMany(Media, {through: "media_list"});
-List.hasMany(Media, {through: "media_list"});
+List.belongsToMany(Media, {through: "media_list"});
 
 
 

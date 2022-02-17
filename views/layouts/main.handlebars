@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Catch-Up</title>
+    </head>
+    <body>
+        <header>
+            <h1>Catch-Up!</h1>
+            {{#if logged_in}}
+            <nav>
+                <button id="logout">logout</button>
+            </nav>
+            {{/if}}
+        </header>
+        <main>
+            {{{ body }}}
+        </main>
+        <footer>
+            
+        </footer>
+        {{#if logged_in}}
+        <script src="/js/logout.js"></script>
+        {{/if}}
+    </body>
+</html>
