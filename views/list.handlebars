@@ -12,9 +12,9 @@
             {{#each list as |item|}}
             <tr>
                 <th scope="row">{{increment @index}}</th>
-                <td>{{item.title}}</td>
+                <td><a href="/media/{{item.id}}"></a>{{item.title}}</a></td>
                 <td>{{item.type}}</td>
-            </tr>
+            </tr> 
             {{/each}}
         </tbody>
     </table>
@@ -26,3 +26,4 @@
     </div>
     {{/if}}
 </div>
+<script src="/js/list.js"></script>
