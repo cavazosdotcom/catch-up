@@ -1,0 +1,22 @@
+{{#if list}}
+<table>
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list as |item|}}
+        <tr>
+            <th scope="row">{{@index}}</th>
+            <td>{{item.title}}</td>
+            <td>{{item.type}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{else}}
+<a href="/">Add something to your list now!</a>
+{{/if}}
