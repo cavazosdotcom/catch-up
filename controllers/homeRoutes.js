@@ -11,6 +11,14 @@ router.get("/media", withAuth, async (req, res) => {
     res.render("media", {logged_in: req.session.logged_in});
 })
 
+router.get("/register", (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect("/");
+        return;
+    }
+    res.render("register");
+});
+
 router.get("/login", (req, res) => {
     if (req.session.logged_in) {
         res.redirect("/");
