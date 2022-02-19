@@ -1,6 +1,7 @@
 const User = require("./User");
 const List = require("./List");
 const Media = require("./Media");
+const MediaList = require("./MediaList");
 
 // Define table relationships
 
@@ -27,4 +28,4 @@ List.belongsToMany(Media, {through: "media_list"});
 
 
 
-module.exports = {User, List, Media}; 
+module.exports = {User, List, Media, MediaList}; 
