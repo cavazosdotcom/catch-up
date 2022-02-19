@@ -1,3 +1,13 @@
+const path = window.location.pathname.split("/");
+
+const getMedia = async (id) => {
+    const response = await fetch(`/api/media/${id}`);
+    const mediaData = await response.json();
+    document.querySelector("#media-title").textContent = mediaData.title;
+    document.querySelector("#media-type").textContent = mediaData.type;
+    document.querySelector("#media-info").textContent = mediaData.info;
+}
+
 const submitMedia = async (event) => {
     event.preventDefault();
 
@@ -6,7 +16,7 @@ const submitMedia = async (event) => {
     const description = document.querySelector("#desc").value.trim();
 
     if(title && type && description){
-        const response = await fetch("api/media", {
+        const response = await fetch("/api/media", {
             method: "POST",
             body: JSON.stringify({title, type, description}),
             headers: { "Content-Type": "application/json"}
@@ -20,6 +30,10 @@ const submitMedia = async (event) => {
     }
 }
 
-document
-    .querySelector(".media-form")
-    .addEventListener("submit", submitMedia);
+if(path[2]){
+    getMedia(path[2]);
+}else{
+    document
+        .querySelector(".media-form")
+        .addEventListener("submit", submitMedia);
+}
