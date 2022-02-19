@@ -11,7 +11,7 @@
         <tbody>
             {{#each list as |item|}}
             <tr>
-                <th scope="row">{{@index}}</th>
+                <th scope="row">{{increment @index}}</th>
                 <td>{{item.title}}</td>
                 <td>{{item.type}}</td>
             </tr>
