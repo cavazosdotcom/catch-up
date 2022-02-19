@@ -1,12 +1,14 @@
 const router = require("express").Router();
-const { Media } = require('../../models');
+const { Media, User, List } = require('../../models');
 
 
 router.get('/', async (req, res) => {
     
   try {
 
-    const mediaData = await Media.findAll();
+    const mediaData = await Media.findAll({
+      // include: [{ model: List }],
+    });
 
     res.status(200).json( mediaData );
 
@@ -21,7 +23,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const mediaData = await Media.findByPk( req.params.id, {
-      // include: [{ model: Product }]
+      // include: [{ model: List }],
     });
   
     if ( !mediaData ) {
