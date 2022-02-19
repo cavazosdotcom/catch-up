@@ -3,9 +3,13 @@ const { User } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
-    const list = require("../seeds/mediaData.json")
-    res.render("list", {logged_in: req.session.logged_in, list})
+    const list = require("../seeds/mediaData.json");
+    res.render("list", {logged_in: req.session.logged_in, list});
 });
+
+router.get("/media", withAuth, async (req, res) => {
+    res.render("media", {logged_in: req.session.logged_in});
+})
 
 router.get("/login", (req, res) => {
     if (req.session.logged_in) {

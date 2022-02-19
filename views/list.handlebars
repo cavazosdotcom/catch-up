@@ -18,7 +18,11 @@
             {{/each}}
         </tbody>
     </table>
+    <a class="btn btn-secondary" href="/media">Add to my list!</a>
     {{else}}
-    <a href="/">Add something to your list now!</a>
+    <h2 class="card-header">Oh no! Your list is empty!</h2>
+    <div class="card-body">
+        <a href="/media">Add something to your list now!</a>
+    </div>
     {{/if}}
 </div>
