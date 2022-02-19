@@ -5,7 +5,7 @@ const registerFormHandler = async (event) => {
     const password = document.querySelector('#password').value.trim();
     const name = document.querySelector("#username").value.trim();
   
-    if (email && password) {
+    if (email && password && name) {
       const response = await fetch('/api/users/', {
         method: 'POST',
         body: JSON.stringify({ email, password, name }),
@@ -15,7 +15,7 @@ const registerFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/');
       } else {
-        alert('Failed to log in');
+        alert('Failed to register.');
       }
     }
   };
