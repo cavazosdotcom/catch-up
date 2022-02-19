@@ -1,0 +1,28 @@
+<div class="card">
+    {{#if list}}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each list as |item|}}
+            <tr>
+                <th scope="row">{{increment @index}}</th>
+                <td>{{item.title}}</td>
+                <td>{{item.type}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <a class="btn btn-secondary" href="/media">Add to my list!</a>
+    {{else}}
+    <h2 class="card-header">Oh no! Your list is empty!</h2>
+    <div class="card-body">
+        <a href="/media">Add something to your list now!</a>
+    </div>
+    {{/if}}
+</div>
