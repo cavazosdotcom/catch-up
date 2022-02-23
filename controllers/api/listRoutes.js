@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { List, Media, MediaList} = require('../../models');
+const { List, Media, MediaList } = require('../../models');
 
 router.get('/', async (req, res) => {
     
@@ -15,5 +15,7 @@ router.get('/', async (req, res) => {
     
         res.status(400).json(err);
       }
-      })
+});
+
+
 module.exports = router;
