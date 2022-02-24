@@ -1,4 +1,4 @@
-const path = window.location.pathname.split("/");
+// const path = window.location.pathname.split("/");
 
 const getMedia = async (id) => {
     const response = await fetch(`/api/media/${id}`);
@@ -6,7 +6,7 @@ const getMedia = async (id) => {
     document.querySelector("#media-title").textContent = mediaData.title;
     document.querySelector("#media-type").textContent = mediaData.type;
     document.querySelector("#media-info").textContent = mediaData.info;
-}
+};
 
 const submitMedia = async (event) => {
     event.preventDefault();
@@ -23,17 +23,20 @@ const submitMedia = async (event) => {
         });
 
         if(response.ok){
-            //Add to list
+            // Add to list, added to send back to homepage on valid response
+            document.location.replace('/');
         }else{
             alert("Failed to submit.");
         }
     }
-}
+};
 
-if(path[2]){
-    getMedia(path[2]);
-}else{
-    document
-        .querySelector(".media-form")
-        .addEventListener("submit", submitMedia);
-}
+// TODO: I didn't what it did so I just commented out after I got it working, but can still use!
+// if(path[2]){
+//     getMedia(path[2]);
+// }else{
+// }    
+
+document
+    .querySelector(".media-form")
+    .addEventListener("submit", submitMedia);

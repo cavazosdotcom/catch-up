@@ -1,6 +1,7 @@
 <div class="card">
-    {{#if list}}
-    <table class="table">
+    {{!-- changed from list to media --}}
+    {{#if media}}
+    <table class="table delete-media">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -9,11 +10,14 @@
             </tr>
         </thead>
         <tbody>
-            {{#each list as |item|}}
+            {{!-- changed from list to media --}}
+            {{#each media as |item|}}
             <tr>
                 <th scope="row">{{increment @index}}</th>
-                <td><a href="/media/{{item.id}}"></a>{{item.title}}</a></td>
+                <td><a href="/media/{{item.id}}">{{item.title}}</a></td>
                 <td>{{item.type}}</td>
+                <td><button class="btn btn-sm btn-danger" data-id="{{item.id}}">DELETE</button></td>
+                
             </tr> 
             {{/each}}
         </tbody>

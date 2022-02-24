@@ -2,46 +2,13 @@ const router = require("express").Router();
 const { Media, User, List } = require('../../models');
 
 
-router.get('/', async (req, res) => {
-    
-  try {
-
-    const mediaData = await Media.findAll({
-      // include: [{ model: List }],
-    });
-
-    res.status(200).json( mediaData );
-
-  } catch (err) {
-
-    res.status(400).json(err);
-
-  }
-});
-
-
-router.get('/:id', async (req, res) => {
-  try {
-    const mediaData = await Media.findByPk( req.params.id, {
-      // include: [{ model: List }],
-    });
-  
-    if ( !mediaData ) {
-      res.status(404).json({ message: 'No media found with this id!' });
-      return;
-    }
-
-    res.json( mediaData );
-
-    } catch (err) {
-      res.status(500).json(err);
-    }
-});
-
 
 router.post('/', async (req, res) => {
   try {
-    const newMedia = await Media.create( req.body );
+    const newMedia = await Media.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
 
     res.status(200).json(newMedia);
   } catch (err) {

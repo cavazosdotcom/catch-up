@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { User, Media, List, MediaList } = require("../models");
 const withAuth = require("../utils/auth");
 
+// TODO: Original routes, kept as references for now just in case
 // router.get("/", withAuth, async (req, res) => {
 //     const list = require("../seeds/mediaData.json");
 //     res.render("list", {logged_in: req.session.logged_in, list});
@@ -23,23 +24,33 @@ const withAuth = require("../utils/auth");
 router.get("/", withAuth, async (req, res) => {
 
     try {
-        const listData = await List.findAll({
-            include: [
-                { model: Media, through: MediaList },
-            ]
-        });
+       
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: Media }, { model: List }],
+          });
+
+        const user = userData.get({ plain: true });  
         
-        const lists = listData.map((list) => list.get({ plain: true }));
+        // console.log(user)
 
-        res.render("list", {lists, logged_in: req.session.logged_in})
+        res.render('list', {
+            ...user,
+            logged_in: true
+        });
 
-        // res.status(200).json( listData );
-  
       } catch (err) {
         console.log(err)
         res.status(400).json(err);
       }
 });
+
+
+
+router.get("/media", withAuth, async (req, res) => {
+    res.render("media", {logged_in: req.session.logged_in});
+})
+
 
 
 router.get('/media/:id', withAuth, async (req, res) => {
@@ -48,7 +59,7 @@ router.get('/media/:id', withAuth, async (req, res) => {
         include: [
             { 
                 model: User,
-                attributes: ['name'],
+                // attributes: ['name'],
             },
           ],
       });
@@ -70,6 +81,8 @@ router.get('/media/:id', withAuth, async (req, res) => {
       }
   });
 
+
+
 router.get("/register", (req, res) => {
     if (req.session.logged_in) {
         res.redirect("/");
@@ -78,6 +91,8 @@ router.get("/register", (req, res) => {
     res.render("register");
 });
 
+
+
 router.get("/login", (req, res) => {
     if (req.session.logged_in) {
         res.redirect("/");
@@ -85,9 +100,6 @@ router.get("/login", (req, res) => {
     }
     res.render("login");
 });
-
-
-
 
 
 
