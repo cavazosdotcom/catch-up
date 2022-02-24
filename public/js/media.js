@@ -26,14 +26,17 @@ const submitMedia = async (event) => {
             // Add to list, added to send back to homepage on valid response
             const item = await response.json();
             console.log(item);
-            const response = await fetch(`/api/media/${item.id}`, {
+            const added = await fetch(`/api/lists/${item.id}`, {
                 method: "POST",
                 headers: {"Content-Type": "application/json"}
             })
-
-            // document.location.replace('/');
+            if(added.ok){
+                document.location.replace('/');
+            }else{
+                alert("Failed to add to your list!")
+            }
         }else{
-            alert("Failed to submit.");
+            alert("Failed to create!");
         }
     }
 };

@@ -16,7 +16,7 @@ class List extends Model{
                 medium_id 
             });
         }
-        
+        return null;
     }
 
 }
