@@ -30,14 +30,22 @@ router.get("/", withAuth, async (req, res) => {
           include: [{model: Media}]
         })
 
-        const media = listData[0].media.map((item) => item.toJSON());
+        if(listData[0]){
+          const media = listData[0].media.map((item) => item.toJSON());
 
-        console.log(media);
+          console.log(media);
+  
+          res.render("list", {
+            media,
+            logged_in: true
+          });
+          return
+        }
 
         res.render("list", {
-          media,
           logged_in: true
         });
+        
       } catch (err) {
         console.log(err)
         res.status(400).json(err);
