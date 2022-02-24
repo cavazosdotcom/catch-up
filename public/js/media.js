@@ -13,12 +13,12 @@ const submitMedia = async (event) => {
 
     const title = document.querySelector("#title").value.trim();
     const type = document.querySelector("#type").value;
-    const description = document.querySelector("#desc").value.trim();
+    const info = document.querySelector("#desc").value.trim();
 
-    if(title && type && description){
+    if(title && type && info){
         const response = await fetch("/api/media", {
             method: "POST",
-            body: JSON.stringify({title, type, description}),
+            body: JSON.stringify({title, type, info}),
             headers: { "Content-Type": "application/json"}
         });
 
