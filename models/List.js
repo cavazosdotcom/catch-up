@@ -7,6 +7,7 @@ class List extends Model{
     async addMedia(medium_id){
         const inList = await MediaList.findOne({
             where: {
+                list_id: this.id,
                 medium_id
             }
         });
