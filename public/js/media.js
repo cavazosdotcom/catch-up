@@ -24,7 +24,14 @@ const submitMedia = async (event) => {
 
         if(response.ok){
             // Add to list, added to send back to homepage on valid response
-            document.location.replace('/');
+            const item = await response.json();
+            console.log(item);
+            const response = await fetch(`/api/media/${item.id}`, {
+                method: "POST",
+                headers: {"Content-Type": "application/json"}
+            })
+
+            // document.location.replace('/');
         }else{
             alert("Failed to submit.");
         }
