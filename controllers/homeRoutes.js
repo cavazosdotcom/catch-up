@@ -22,23 +22,22 @@ const withAuth = require("../utils/auth");
 
 
 router.get("/", withAuth, async (req, res) => {
-
     try {
-       
-        const userData = await User.findByPk(req.session.user_id, {
-            attributes: { exclude: ['password'] },
-            include: [{ model: Media }, { model: List }],
-          });
+        const listData = await List.findAll({
+          where: {
+            user_id: req.session.user_id
+          },
+          include: [{model: Media}]
+        })
 
-        const user = userData.get({ plain: true });  
-        
-        // console.log(user)
+        const media = listData[0].media.map((item) => item.toJSON());
 
-        res.render('list', {
-            ...user,
-            logged_in: true
+        console.log(media);
+
+        res.render("list", {
+          media,
+          logged_in: true
         });
-
       } catch (err) {
         console.log(err)
         res.status(400).json(err);
