@@ -49,11 +49,17 @@ router.get("/", withAuth, async (req, res) => {
       }
 });
 
-
+router.get("/browse", async (req, res) => {
+  const mediaData = await Media.findAll();
+  let media = mediaData.map((e) => e.toJSON());
+  media.forEach((e) => e.logged_in = req.session.logged_in);
+  console.log(media);
+  res.render("browse", {media, logged_in: req.session.logged_in});
+});
 
 router.get("/media", withAuth, async (req, res) => {
     res.render("media", {logged_in: req.session.logged_in});
-})
+});
 
 
 
@@ -83,7 +89,7 @@ router.get('/media/:id', withAuth, async (req, res) => {
       } catch (err) {
         res.status(500).json(err);
       }
-  });
+});
 
 
 

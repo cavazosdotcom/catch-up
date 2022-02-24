@@ -1,0 +1,10 @@
+{{#each media as |item|}}
+{{>media-card item}}
+{{/each}}
+{{#unless media}}
+<div class="alert alert-warning">It looks like there isn't anything here yet!</div>
+<div class="text-center">
+    <a class="btn btn-secondary" href="/media">Add something!</a>
+</div>
+{{/unless}}
+<script src="/js/browse.js"></script>

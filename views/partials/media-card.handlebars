@@ -1,0 +1,12 @@
+<div class="card mt-3">
+    <div class="card-header">
+        <h3 class="card-title">{{title}}</h3>
+        <h6 class="card-subtitle">{{type}}</h6>
+    </div>
+    <div class="card-body">
+        <p class="card-text">{{info}}</p>
+        {{#if logged_in}}
+        <button class="add-to-list btn btn-primary" data-id="{{id}}">Add to List</button>
+        {{/if}}
+    </div>
+</div>
