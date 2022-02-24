@@ -32,9 +32,7 @@ router.post("/:media_id", async (req, res) => {
       user_id: req.session.user_id
     }
   });
-  console.log(list);
   const result = await list.addMedia(req.params.media_id);
-  console.log(result);
   if(result){
     return res.status(201).json(result);
   }
