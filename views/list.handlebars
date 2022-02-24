@@ -1,4 +1,3 @@
-{{!-- <p class="animate__animated animate__bounce">TEST ANIMATION</p> --}}
 <div class="card">
     {{!-- changed from list to media --}}
     {{#if media}}
@@ -16,7 +15,6 @@
             {{!-- changed from list to media --}}
             {{#each media as |item|}}
             <tr class="delete-animate{{item.id}}">
-                {{!-- <th class="animate__animated animate__bounceOutRight" scope="row">{{increment @index}}</th> --}}
                 <th scope="row">{{increment @index}}</th>
                 <td><a href="/media/{{item.id}}">{{item.title}}</a></td>
                 <td >{{item.type}}</td>
@@ -35,4 +33,3 @@
     {{/if}}
 </div>
 <script src="/js/list.js"></script>
-{{!-- <script>import 'animate.css';</script> --}}
