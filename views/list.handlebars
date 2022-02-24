@@ -2,11 +2,12 @@
     {{!-- changed from list to media --}}
     {{#if media}}
     <table class="table delete-media">
-        <thead>
+        <thead class="card-header">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
                 <th scope="col">Type</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -16,8 +17,7 @@
                 <th scope="row">{{increment @index}}</th>
                 <td><a href="/media/{{item.id}}">{{item.title}}</a></td>
                 <td>{{item.type}}</td>
-                <td><button class="btn btn-sm btn-danger" data-id="{{item.id}}">DELETE</button></td>
-                
+                <td><button class="btn btn-sm btn-danger" data-id="{{item.id}}">DELETE</button></td>      
             </tr> 
             {{/each}}
         </tbody>
