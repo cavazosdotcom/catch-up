@@ -32,9 +32,6 @@ router.get("/", withAuth, async (req, res) => {
 
         if(listData[0]){
           const media = listData[0].media.map((item) => item.toJSON());
-
-          console.log(media);
-  
           res.render("list", {
             media,
             logged_in: true
@@ -45,7 +42,7 @@ router.get("/", withAuth, async (req, res) => {
         res.render("list", {
           logged_in: true
         });
-        
+
       } catch (err) {
         console.log(err)
         res.status(400).json(err);
