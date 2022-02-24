@@ -1,4 +1,3 @@
-// import 'animate.css';
 deleteBtn = document.querySelector('.delete-media');
 
 const delButtonHandler = async (event) => {
