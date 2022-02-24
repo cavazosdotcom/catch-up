@@ -17,5 +17,15 @@ router.get('/', async (req, res) => {
       }
 });
 
+router.get("/:user_id", async (req, res) => {
+  const listData = await List.findAll({
+    where: {
+      user_id: req.params.user_id
+    },
+    include: [{model: Media}]
+  });
+  res.status(200).json(listData[0].media);
+});
+
 
 module.exports = router;
