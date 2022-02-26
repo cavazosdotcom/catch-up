@@ -5,7 +5,7 @@
   <div class="card-body">
     {{#if image}}
     <div class="float-end">
-      <img src="/images/{{image.file_src}}" alt="Cover art for {{title}}" class="rounded">
+      <img style="max-width: 400px;" src="/images/{{image.file_src}}" alt="Cover art for {{title}}" class="rounded">
     </div>
     {{/if}}
     <p id="media-type">{{type}}</p>
@@ -37,6 +37,10 @@
       <div class="mt-3">
           <label for="desc">Description:</label>
           <textarea id="desc" class="form-control" rows="3"></textarea>
+      </div>
+      <div class="mt-3">
+          <label for="image">Add an Image for this listing:</label>
+          <input type="file" name="image" accept='image/*' id="image">
       </div>
       <div class="mt-3">
         <button class="btn btn-primary" type="submit">Add!</button>

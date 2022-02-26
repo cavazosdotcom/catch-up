@@ -1,7 +1,6 @@
-const registerFormHandler = async (event) => {
+const upload = async (event) => {
     event.preventDefault();
     const image = document.getElementById("image").files[0];
-    console.log(image);
     const id = document.getElementById("id").value;
     const data = new FormData();
     data.append("image", image);
@@ -17,4 +16,4 @@ const registerFormHandler = async (event) => {
 
 document
     .getElementById("image-upload")
-    .addEventListener('submit', registerFormHandler);
+    .addEventListener('submit', upload);
