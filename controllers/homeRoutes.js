@@ -69,10 +69,8 @@ router.get('/media/:id', withAuth, async (req, res) => {
     try {
       const mediaData = await Media.findByPk( req.params.id, {
         include: [
-            { 
-                model: User,
-                // attributes: ['name'],
-            },
+            {model: User},
+            {model: Image}
           ],
       });
     
