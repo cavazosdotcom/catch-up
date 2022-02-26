@@ -83,7 +83,7 @@ router.get("/random", withAuth, async (req, res) => {
     
     console.log(media)
     
-    res.render('media', {
+    res.render('random', {
       ...media,
       logged_in: req.session.logged_in
     });
