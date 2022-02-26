@@ -1,4 +1,16 @@
 <div class="card">
+  <div class="card-body text-center">
+    {{!-- {{#equals media-type 'book'}}
+    Your next book to read is {{title}}
+    {{else}} --}}
+    Your next form of entertainment is a {{type}}:
+    <p>{{title}}</p>
+  </div>
+</div>
+
+<br>
+
+<div class="card">
   <h2 class="card-header" id="media-title">{{title}}</h2>
   <div class="card-body">
     <p id="media-type">{{type}}</p>
@@ -7,3 +19,8 @@
     </div>
   </div>
 </div>
+
+{{!-- {{#if data-value === '1'}}
+This is the text posted
+{{else}}
+This other text is posted --}}
