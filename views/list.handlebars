@@ -1,0 +1,35 @@
+<div class="card">
+    {{!-- changed from list to media --}}
+    {{#if media}}
+    <table class="table delete-media delete-animate-parent">
+        <thead class="card-header">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Type</th>
+                <th scope="col">Info</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{!-- changed from list to media --}}
+            {{#each media as |item|}}
+            <tr class="delete-animate{{item.id}}">
+                <th scope="row">{{increment @index}}</th>
+                <td><a href="/media/{{item.id}}">{{item.title}}</a></td>
+                <td >{{item.type}}</td>
+                <td >{{item.info}}</td>
+                <td><button class="btn btn-sm btn-danger" data-id="{{item.id}}">DELETE</button></td>      
+            </tr> 
+            {{/each}}
+        </tbody>
+    </table>
+    <a class="btn btn-secondary" href="/media">Add to my list!</a>
+    {{else}}
+    <h2 class="card-header">Oh no! Your list is empty!</h2>
+    <div class="card-body">
+        <a href="/media">Add something to your list now!</a>
+    </div>
+    {{/if}}
+</div>
+<script src="/js/list.js"></script>

@@ -1,0 +1,41 @@
+{{#if id}}
+<div class="card">
+  <h2 class="card-header" id="media-title">{{title}}</h2>
+  <div class="card-body">
+    <p id="media-type">{{type}}</p>
+    <div class="mt-3">
+        <p id="media-info">{{info}}</p>
+    </div>
+  </div>
+</div>
+{{else}}
+<div class="card">
+  <h2 class="card-header">What do you need to catch up on?</h2>
+  <div class="card-body">
+    <form class="media-form">
+      <div class="mt-3">
+        <label for="title" class="form-label">Title:</label>
+        <input class="form-control" type="text" id="title" />
+      </div>
+      <div class="mt-3">
+        <label for="type" class="form-label">Type:</label>
+        <select class="form-select" id="type">
+            <option selected>Select a type!</option>
+            <option value="movie">Movie</option>
+            <option value="tv show">TV Show</option>
+            <option value="book">Book</option>
+            <option value="videogame">Video Game</option>
+        </select>
+      </div>
+      <div class="mt-3">
+          <label for="desc">Description:</label>
+          <textarea id="desc" class="form-control" rows="3"></textarea>
+      </div>
+      <div class="mt-3">
+        <button class="btn btn-primary" type="submit">Add!</button>
+      </div>
+    </form>
+  </div>
+</div>
+{{/if}}
+<script src="/js/media.js"></script>

@@ -1,10 +1,10 @@
 const router = require("express").Router();
-const { User } = require('../../models');
+const { User, List } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
-
+    const userList = await List.create({user_id: userData.id});
     req.session.save(() => {
         req.session.logged_in = true;
         req.session.user_id = userData.id;
@@ -35,11 +35,11 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Sorry the email or password you entered is incorrect, try again.' });
       return;
     }
-
+    
+    req.session.logged_in = true;
+    req.session.user_id = userData.id;
+    
     req.session.save(() => {
-      req.session.logged_in = true;
-      req.session.user_id = userData.id;
-      
       res.json({ user: userData, message: 'You Are Now Signed In' });
     });
 
