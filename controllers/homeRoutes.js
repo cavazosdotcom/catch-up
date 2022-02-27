@@ -79,7 +79,7 @@ router.get("/random", withAuth, async (req, res) => {
     const len = list.length; 
     // console.log(len)
      //generate random number
-     var media = list[Math.floor(Math.random()*list.length)];
+     var media = list[Math.floor(Math.random() * len)];
     
     console.log(media)
     

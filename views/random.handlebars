@@ -1,10 +1,7 @@
+{{!-- {{#if List}} --}}
 <div class="card">
   <div class="card-body text-center">
-    {{!-- {{#equals media-type 'book'}}
-    Your next book to read is {{title}}
-    {{else}} --}}
-    Your next binge is:
-    <p>{{title}}</p>
+    <p>Your next binge is:</p>
   </div>
 </div>
 
@@ -19,3 +16,10 @@
     </div>
   </div>
 </div>
+{{!-- {{/if}}
+{{#unless list}}
+<div class="alert alert-warning">{{List}}It looks like there isn't anything here yet!</div>
+<div class="text-center">
+    <a class="btn btn-secondary" href="/media">Add something!</a>
+</div>
+{{/unless}} --}}
