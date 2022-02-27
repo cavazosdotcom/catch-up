@@ -1,22 +1,24 @@
 <div class="card">
     {{!-- changed from list to media --}}
     {{#if media}}
-    <table class="table delete-media">
+    <table class="table delete-media delete-animate-parent">
         <thead class="card-header">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
                 <th scope="col">Type</th>
+                <th scope="col">Info</th>
                 <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
             {{!-- changed from list to media --}}
             {{#each media as |item|}}
-            <tr>
+            <tr class="delete-animate{{item.id}}">
                 <th scope="row">{{increment @index}}</th>
                 <td><a href="/media/{{item.id}}">{{item.title}}</a></td>
-                <td>{{item.type}}</td>
+                <td >{{item.type}}</td>
+                <td >{{item.info}}</td>
                 <td><button class="btn btn-sm btn-danger" data-id="{{item.id}}">DELETE</button></td>      
             </tr> 
             {{/each}}

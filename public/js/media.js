@@ -14,6 +14,7 @@ const submitMedia = async (event) => {
     const title = document.querySelector("#title").value.trim();
     const type = document.querySelector("#type").value;
     const info = document.querySelector("#desc").value.trim();
+    const image = document.getElementById("image").files[0];
 
     if(title && type && info){
         const response = await fetch("/api/media", {
@@ -21,11 +22,21 @@ const submitMedia = async (event) => {
             body: JSON.stringify({title, type, info}),
             headers: { "Content-Type": "application/json"}
         });
-
         if(response.ok){
             // Add to list, added to send back to homepage on valid response
             const item = await response.json();
-            console.log(item);
+            if(image){
+                const data = new FormData();
+                data.append("image", image);
+                data.append("id", item.id);
+                const upload = await fetch(`/api/media/image/`, {
+                    method: "POST",
+                    body: data,
+                });
+                if(upload.ok){
+                    console.log("Upload successful.");
+                }
+            }
             const added = await fetch(`/api/lists/${item.id}`, {
                 method: "POST",
                 headers: {"Content-Type": "application/json"}
@@ -40,12 +51,6 @@ const submitMedia = async (event) => {
         }
     }
 };
-
-// TODO: I didn't what it did so I just commented out after I got it working, but can still use!
-// if(path[2]){
-//     getMedia(path[2]);
-// }else{
-// }    
 
 document
     .querySelector(".media-form")

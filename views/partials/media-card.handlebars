@@ -1,12 +1,21 @@
-<div class="card mt-3">
-    <div class="card-header">
-        <h3 class="card-title">{{title}}</h3>
-        <h6 class="card-subtitle">{{type}}</h6>
-    </div>
-    <div class="card-body">
-        <p class="card-text">{{info}}</p>
-        {{#if logged_in}}
-        <button class="add-to-list btn btn-primary" data-id="{{id}}">Add to List</button>
+<div class=" col-sm-6 col-lg-4 col-xl-3">
+    <div class="card h-100">
+        {{#if image}}
+        <img class="card-img-top" src="/images/{{image.file_src}}" alt="Cover art for {{title}}">   
+        {{else}}
+        <img class="card-img-top" src="/images/placeholder.png" alt="No image for this title yet!"> 
         {{/if}}
+        {{#if logged_in}}
+        <div class="card-img-overlay">
+            <button class="add-to-list btn btn-primary" data-id="{{id}}">Add to List</button>
+        </div>
+        {{/if}}
+        <div class="card-body">
+            
+            <h3 class="card-title">{{title}}</h3>
+            <h6 class="card-subtitle">{{type}}</h6>
+            <p class="card-text">{{info}}</p>
+            
+        </div>
     </div>
 </div>

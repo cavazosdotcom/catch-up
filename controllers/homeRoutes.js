@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Media, List, MediaList } = require("../models");
+const { User, Media, List, MediaList, Image} = require("../models");
 const withAuth = require("../utils/auth");
 
 // TODO: Original routes, kept as references for now just in case
@@ -50,7 +50,9 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 router.get("/browse", async (req, res) => {
-  const mediaData = await Media.findAll();
+  const mediaData = await Media.findAll({
+    include: [{model: Image}]
+  });
   let media = mediaData.map((e) => e.toJSON());
   media.forEach((e) => e.logged_in = req.session.logged_in);
   console.log(media);
@@ -98,10 +100,8 @@ router.get('/media/:id', withAuth, async (req, res) => {
     try {
       const mediaData = await Media.findByPk( req.params.id, {
         include: [
-            { 
-                model: User,
-                // attributes: ['name'],
-            },
+            {model: User},
+            {model: Image}
           ],
       });
     
@@ -120,6 +120,10 @@ router.get('/media/:id', withAuth, async (req, res) => {
       } catch (err) {
         res.status(500).json(err);
       }
+});
+
+router.get("/upload", (req, res) => {
+  res.render("upload", req.session.logged_in);
 });
 
 
