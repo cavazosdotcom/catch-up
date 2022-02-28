@@ -1,7 +1,8 @@
 <div class="card">
     {{!-- changed from list to media --}}
     {{#if media}}
-    <table class="table delete-media delete-animate-parent">
+    {{!-- class delete-media and delete-animate-parent--}}
+    <table class="table">
         <thead class="card-header">
             <tr>
                 <th scope="col">#</th>
@@ -11,7 +12,7 @@
                 <th scope="col"></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="delete-animate-parent delete-media">
             {{!-- changed from list to media --}}
             {{#each media as |item|}}
             <tr class="delete-animate{{item.id}}">
