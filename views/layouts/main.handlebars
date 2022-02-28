@@ -5,33 +5,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Catch-Up</title>
         {{!-- Bootstrap --}}
-        <link rel="stylesheet" href="/css/style.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         {{!-- animate.css npm package --}}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link rel="stylesheet" href="/css/style.css">
     </head>
-    <body class="media-body">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <body class="bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-blue">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">Catch-Up!</a>
+                <a class="navbar-brand text-wt" href="/">Swift</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">My List</a>
+                        <a class="nav-link active text-light" aria-current="page" href="/">My List</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/browse">Browse</a>
+                        <a class="nav-link text-light" href="/browse">Browse</a>
                     </li>
                     {{#if logged_in}}
                     <li class="nav-item">
-                        <a class="nav-link" id="logout" href="#">Logout</a>  
+                        <a class="nav-link text-light" id="logout" href="#">Logout</a>  
                     </li>
                     {{else}}
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">Log In</a>  
+                        <a class="nav-link text-light" href="/login">Log In</a>  
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/register">Sign Up</a>  
                     </li>
                     {{/if}}
                 </ul>
@@ -45,10 +48,10 @@
         <main class="container container-fluid mt-5 overflow-hidden">
             {{{ body }}}
         </main>
-        <footer class="mt-5 p-5 text-center bg-light">
-            Created by <a href="https://github.com/cavazosdotcom/">Chriz Cazavos</a>,
-            <a href="https://github.com/Malcolm0729">Malcolm Hendrix</a>,
-            and <a href="https://github.com/CameronMSeibel">Cameron Seibel</a>
+        <footer class="mt-5 p-5 text-center page-footer text-dark">
+            Created by <a href="https://github.com/cavazosdotcom/" class="link-dark">Chris Cavazos</a>,
+            <a href="https://github.com/Malcolm0729" class="link-dark">Malcolm Hendrix</a>,
+            and <a href="https://github.com/CameronMSeibel" class="link-dark">Cameron Seibel</a>
         </footer>
         {{#if logged_in}}
         <script src="/js/logout.js"></script>
