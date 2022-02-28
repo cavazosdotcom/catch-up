@@ -1,10 +1,10 @@
-<div class="card shadow-lg">
+<div class="card shadow">
     {{!-- changed from list to media --}}
     {{#if media}}
     {{!-- class delete-media and delete-animate-parent--}}
     <table class="table">
         <thead class="card-header">
-            <tr>
+            <tr class="bg-yellow">
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
                 <th scope="col">Type</th>
@@ -17,15 +17,15 @@
             {{#each media as |item|}}
             <tr class="delete-animate{{item.id}}">
                 <th scope="row">{{increment @index}}</th>
-                <td><a href="/media/{{item.id}}">{{item.title}}</a></td>
+                <td><a class="text-decoration-none list-text" href="/media/{{item.id}}">{{item.title}}</a></td>
                 <td >{{item.type}}</td>
                 <td >{{item.info}}</td>
-                <td><button class="btn btn-sm btn-danger" data-id="{{item.id}}">DELETE</button></td>      
+                <td><button class="btn btn-sm btn-danger btn-style" data-id="{{item.id}}">DELETE</button></td>      
             </tr> 
             {{/each}}
         </tbody>
     </table>
-    <a class="btn btn-secondary" href="/media">Add to my list!</a>
+    <a class="btn btn-style" href="/media">Add to my list!</a>
     {{else}}
     <h2 class="card-header shadow-lg">Oh no! Your list is empty!</h2>
     <div class="card-body">

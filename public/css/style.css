@@ -1,15 +1,20 @@
 :root {
     --main-blue: #1f55b9;
+    --second-blue: #001b4d;
     --main-yellow: #ffff90;
     --second-yellow: rgb(255, 243, 195);
 }
 
-.btn-signup-page {
+.text-dec-none {
     text-decoration: none !important;
-    color:white;
 }
 
-.btn-signup:hover {
+.btn-anchor {
+    text-decoration: none !important;
+    color: white;
+}
+
+.btn-anchor:hover {
     color: #21252A;
 }
 
@@ -54,25 +59,30 @@
     border-color: var(--main-blue);
 }
 
-.login {
-    background-color:#902020 ;
+.list-text {
+    color: var(--main-blue);
 }
 
-.media-body {
-    background-color: 	#1b58ad;
+.list-text:hover {
+    color: var(--second-blue);
 }
 
-/* footer{
-    position:fixed;
-    bottom:0;
-} */
-
+.card-shadow {
+    box-shadow: 3px 4px 8px 6px grey;
+}
 
 /* keeps footer postioned at the bottom of the page */
 .page-footer {
-    position:absolute;
+    /* position:absolute;
     top:100vh;
-    transform:translateY(-130%);
     width:100%;
+    transform:translateY(-100%);
+    background-color: var(--main-yellow); */
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     background-color: var(--main-yellow);
+    color: white;
+    text-align: center;
 }
