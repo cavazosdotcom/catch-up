@@ -4,6 +4,15 @@
     --second-yellow: rgb(255, 243, 195);
 }
 
+.btn-signup-page {
+    text-decoration: none !important;
+    color:white;
+}
+
+.btn-signup:hover {
+    color: #21252A;
+}
+
 .bg-blue {
     background-color: var(--main-blue);
 }
