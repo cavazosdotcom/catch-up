@@ -71,18 +71,26 @@
     box-shadow: 3px 4px 8px 6px grey;
 }
 
+.rounded {
+    border-radius: 20%;
+}
+
+.pt {
+    padding-top: 15px;
+}
+
 /* keeps footer postioned at the bottom of the page */
 .page-footer {
-    /* position:absolute;
+    position:absolute;
     top:100vh;
     width:100%;
-    transform:translateY(-100%);
-    background-color: var(--main-yellow); */
-    position: fixed;
+    /* transform:translateY(-100%); */
+    background-color: var(--main-yellow);
+    /* position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     background-color: var(--main-yellow);
     color: white;
-    text-align: center;
+    text-align: center; */
 }
