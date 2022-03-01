@@ -64,6 +64,37 @@ router.get("/media", withAuth, async (req, res) => {
 });
 
 
+// TODO: Add random route
+router.get("/random", withAuth, async (req, res) => {
+  
+  try {
+    const listData = await List.findAll({
+      where: {
+        user_id: req.session.user_id
+      },
+      include: [{model: Media}]
+    })
+    const list = listData[0].media.map((item) => item.toJSON());
+    // const list = listData.get({ plain: true });
+    // console.log(list);
+
+    const len = list.length; 
+    // console.log(len)
+     //generate random number
+     var media = list[Math.floor(Math.random() * len)];
+    
+    console.log(media)
+    
+    res.render('random', {
+      ...media,
+      logged_in: req.session.logged_in
+    });
+
+  } catch (err) {
+      res.status(500).json(err);
+    }
+});
+
 
 router.get('/media/:id', withAuth, async (req, res) => {
     try {

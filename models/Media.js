@@ -19,7 +19,7 @@ Media.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isIn: [['tv show', 'movie', 'book', 'videogame']],
+        isIn: [['tv show', 'movie', 'book', 'video game']],
       },
     },
     info: {
