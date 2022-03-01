@@ -1,25 +1,35 @@
-{{!-- {{#if List}} --}}
+{{#if id}}
 <div class="card">
-  <div class="card-body text-center">
-    <p>Your next binge is:</p>
+  <div class="card-body text-center bg-blue">
+    <h2 class="text-white">Your next binge:</h2>
   </div>
 </div>
 
 <br>
 
-<div class="card">
-  <h2 class="card-header" id="media-title">{{title}}</h2>
+<div class="card shadow">
+  <h2 class="card-header bg-yellow" id="media-title">{{title}}</h2>
   <div class="card-body">
+    {{#if image}}
+    <div class="float-end">
+      <img style="max-width: 400px;" src="/images/{{image.file_src}}" alt="Cover art for {{title}}" class="rounded">
+    </div>
+    {{/if}}
     <p id="media-type">{{type}}</p>
     <div class="mt-3">
         <p id="media-info">{{info}}</p>
     </div>
   </div>
 </div>
-{{!-- {{/if}}
-{{#unless list}}
-<div class="alert alert-warning">{{List}}It looks like there isn't anything here yet!</div>
-<div class="text-center">
-    <a class="btn btn-secondary" href="/media">Add something!</a>
+{{/if}}
+ 
+{{#unless id}}
+<div class="card">
+  <div class="card-header bg-danger text-center">
+    <h2>Uh Oh! It looks like there isn't anything here yet!</h2>
+  </div>
+  <div class="card-body text-center">
+    <a class="btn btn-style" href="/media">Add something!</a>
+  </div>
 </div>
-{{/unless}} --}}
+{{/unless}}

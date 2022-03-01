@@ -2,24 +2,6 @@ const router = require("express").Router();
 const { User, Media, List, MediaList, Image} = require("../models");
 const withAuth = require("../utils/auth");
 
-// TODO: Original routes, kept as references for now just in case
-// router.get("/", withAuth, async (req, res) => {
-//     const list = require("../seeds/mediaData.json");
-//     res.render("list", {logged_in: req.session.logged_in, list});
-// });
-
-// router.get("/media", withAuth, async (req, res) => {
-//     res.render("media", {logged_in: req.session.logged_in});
-// })
-
-// router.get("/register", (req, res) => {
-//     if (req.session.logged_in) {
-//         res.redirect("/");
-//         return;
-//     }
-//     res.render("register");
-// });
-
 
 router.get("/", withAuth, async (req, res) => {
     try {
@@ -29,7 +11,6 @@ router.get("/", withAuth, async (req, res) => {
           },
           include: [{model: Media}]
         })
-
         if(listData[0]){
           const media = listData[0].media.map((item) => item.toJSON());
           res.render("list", {
@@ -38,18 +19,16 @@ router.get("/", withAuth, async (req, res) => {
           });
           return
         }
-
         res.render("list", {
           logged_in: true
         });
-
       } catch (err) {
         console.log(err)
         res.status(400).json(err);
       }
 });
 
-router.get("/browse", async (req, res) => {
+router.get("/browse", withAuth, async (req, res) => {
   const mediaData = await Media.findAll({
     include: [{model: Image}]
   });
@@ -64,7 +43,7 @@ router.get("/media", withAuth, async (req, res) => {
 });
 
 
-// TODO: Add random route
+
 router.get("/random", withAuth, async (req, res) => {
   
   try {
@@ -75,15 +54,9 @@ router.get("/random", withAuth, async (req, res) => {
       include: [{model: Media}]
     })
     const list = listData[0].media.map((item) => item.toJSON());
-    // const list = listData.get({ plain: true });
-    // console.log(list);
 
     const len = list.length; 
-    // console.log(len)
-     //generate random number
      var media = list[Math.floor(Math.random() * len)];
-    
-    console.log(media)
     
     res.render('random', {
       ...media,
@@ -127,7 +100,6 @@ router.get("/upload", (req, res) => {
 });
 
 
-
 router.get("/register", (req, res) => {
     if (req.session.logged_in) {
         res.redirect("/");
@@ -137,7 +109,6 @@ router.get("/register", (req, res) => {
 });
 
 
-
 router.get("/login", (req, res) => {
     if (req.session.logged_in) {
         res.redirect("/");
@@ -145,7 +116,6 @@ router.get("/login", (req, res) => {
     }
     res.render("login");
 });
-
 
 
 module.exports = router;
