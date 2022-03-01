@@ -51,7 +51,10 @@ router.get("/random", withAuth, async (req, res) => {
       where: {
         user_id: req.session.user_id
       },
-      include: [{model: Media}]
+      include: [{
+        model: Media,
+        include: [{model: Image}]
+      }]
     })
     const list = listData[0].media.map((item) => item.toJSON());
 

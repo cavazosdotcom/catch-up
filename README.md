@@ -1,5 +1,6 @@
 # catch-up
-An application where users can login, and store a list of any media(tv shows, movies, books, etc.) that they need to catch up on
+
+An application where users can login, and store a list of any media (tv shows, movies, books, etc.) that they need to catch up on. It is built on node JS with express and handlebars, MySQL with the Sequelize ORM, multer for handling image uploads, and Bootstrap for style.
 
 ## Contributors
 - [Chris Cavazos](https://github.com/cavazosdotcom)
@@ -8,7 +9,7 @@ An application where users can login, and store a list of any media(tv shows, mo
 
 ## Links
 
-[Heroku Page](https://catch-up-inator.herokuapp.com/)
+[![A screenshot of a beautiful application. Perchance, you could use it?](./app_screenshot.png)](https://catch-up-inator.herokuapp.com/)
 
 [Github Repo](https://github.com/cavazosdotcom/catch-up)
 
