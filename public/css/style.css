@@ -1,11 +1,100 @@
-.login {
-    background-color:#902020 ;
+:root {
+    --main-blue: #1f55b9;
+    --second-blue: #001b4d;
+    --main-yellow: #ffff90;
+    --second-yellow: rgb(255, 243, 195);
 }
 
-.card-body {
-background-color: lightgrey;
+body {
+    padding-bottom: 10rem;
 }
 
-.media-body {
-    background-color: 	#2782ff;
+.text-dec-none {
+    text-decoration: none !important;
+}
+
+.btn-anchor {
+    text-decoration: none !important;
+    color: white;
+}
+
+.btn-anchor:hover {
+    color: #21252A;
+}
+
+.bg-blue {
+    background-color: var(--main-blue);
+}
+
+.bg-yellow {
+    background-color: var(--main-yellow);
+}
+
+.text-light:hover{
+    color: #FFFFFFC7 !important;
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-light .navbar-toggler {
+    border: 1px solid white;
+}
+
+.text-wt {
+    color: #fff !important;
+}
+
+.bg-wt {
+    background-color: white !important;
+}
+
+.text-dk {
+    color: rgba(0, 0, 0, 0.815);
+}
+/* .card-header {
+    background-color: var(--main-blue);
+} */
+
+.btn-style {
+    color: #fff;
+    background-color: var(--main-blue);
+    border-color: var(--main-blue);
+}
+
+.list-text {
+    color: var(--main-blue);
+}
+
+.list-text:hover {
+    color: var(--second-blue);
+}
+
+.card-shadow {
+    box-shadow: 3px 4px 8px 6px grey;
+}
+
+.rounded {
+    border-radius: 20%;
+}
+
+.pt {
+    padding-top: 15px;
+}
+
+/* keeps footer postioned at the bottom of the page */
+.page-footer {
+    /* position:absolute;
+    top:100vh;
+    width:100%;
+    /* transform:translateY(-100%); */
+    /* background-color: var(--main-yellow); */ 
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--main-yellow);
+    color: white;
+    text-align: center;
 }

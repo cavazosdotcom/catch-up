@@ -4,9 +4,13 @@
 {{/each}}
 </div>
 {{#unless media}}
-<div class="alert alert-warning">It looks like there isn't anything here yet!</div>
-<div class="text-center">
-    <a class="btn btn-secondary" href="/media">Add something!</a>
+<div class="card pt">
+  <div class="card-header bg-danger text-center">
+    <h2>Uh Oh! It looks like there isn't anything here yet!</h2>
+  </div>
+  <div class="card-body text-center">
+    <a class="btn btn-style" href="/media">Add something!</a>
+  </div>
 </div>
 {{/unless}}
 <script src="/js/browse.js"></script>
