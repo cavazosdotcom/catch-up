@@ -39,4 +39,27 @@ router.post("/:media_id", async (req, res) => {
   res.status(406).json({error: "Item is already in your list."})
 });
 
+router.delete("/:media_id", async (req, res) => {
+  try{
+    const list = await List.findOne({
+      where: {
+        user_id: req.session.user_id
+      }
+    });
+    const result = await MediaList.destroy({
+      where: {
+        list_id: list.id,
+        medium_id: req.params.media_id,
+      }
+    });
+    if(!result){
+      return res.status(404).json({error: "Failed to find list entry."});
+    }
+    res.status(200).json(result);
+  }catch(error){
+    res.status(500).json({error});
+  }
+  
+});
+
 module.exports = router;

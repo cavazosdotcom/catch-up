@@ -7,7 +7,7 @@ const delButtonHandler = async (event) => {
       console.log(event)
       console.log(event.target.value)
   
-      const response = await fetch(`/api/media/${id}`, {
+      const response = await fetch(`/api/lists/${id}`, {
         method: 'DELETE',
       });
       if (response.ok) {
